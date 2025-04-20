@@ -2,7 +2,14 @@ select * from EKKO;
 select * from EKPO;
 
 select count(*) from "EKKO";  -- 43 
+
+Output:
+count
+43
+  
 select count(*) from "EKPO";  -- 75
+
+
 
 -- 1. FOR PURCHASE ORDER :
 select A.EBELN, WAERS, NETWR FROM EKKO AS A    -- Select the Purchase Order number, currency, and net price
