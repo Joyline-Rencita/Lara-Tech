@@ -9,6 +9,9 @@ count
   
 select count(*) from "EKPO";  -- 75
 
+Output
+count
+75
 
 
 -- 1. FOR PURCHASE ORDER :
