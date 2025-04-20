@@ -13,11 +13,20 @@ Output
 count
 75
 
-
 -- 1. FOR PURCHASE ORDER :
 select A.EBELN, WAERS, NETWR FROM EKKO AS A    -- Select the Purchase Order number, currency, and net price
 JOIN EKPO AS B ON                              -- From the Purchase Order Header table (EKKO), aliased as A
 A.MANDT = B.MANDT AND A.EBELN = B.EBELN;       -- Join it with the Purchase Order Item table (EKPO), aliased as B
+
+Output :
+EBELN	      WAERS  	NETWR
+V411327955	USD	    226876
+V411586076	CAD    	246.4
+V411671123	CAD	    219.9
+V411713810	CAD	    239
+V411714298	CAD	    3252.4
+V411930981	CAD	    25000
+V411577831	CAD	    71000
 
 -- FOR INVOICING :
 
