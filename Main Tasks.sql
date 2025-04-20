@@ -57,9 +57,9 @@ A.MANDT = B.MANDT AND A.EBELN = B.EBELN;
 
 -- Improved query:
 SELECT 
-  EKKO.LIFNR AS Suppiler_Number,
-  sum(EKPO.NETWR) AS Total_PO_Value,
-  EKKO.ZTERM AS Payment_Terms
+  EKKO.LIFNR AS Suppiler_Number,        --- 1
+  sum(EKPO.NETWR) AS Total_PO_Value,    --- 2
+  EKKO.ZTERM AS Payment_Terms           --- 3
 FROM EKKO 
 JOIN EKPO 
 ON EKKO.EBELN = EKPO.EBELN AND EKKO.MANDT = EKPO.MANDT
