@@ -65,6 +65,13 @@ JOIN EKPO
 ON EKKO.EBELN = EKPO.EBELN AND EKKO.MANDT = EKPO.MANDT
 GROUP BY 1,3;
 
+Output
+Suppiler_Number	    Total_PO_Value	Payment_Terms
+7000016966	          246.4	          NT40
+7000030006	          505000	        NT40
+7003201551	          5140.01	        NT30
+7003299240	          156917	        NT60
+
 -- 4. activity table
 SELECT * FROM TMP_P2P_EKKO_EKPO_JOYLINE; -- WORKING
 
