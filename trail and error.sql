@@ -13,4 +13,4 @@ GROUP BY 1,4;
 Output
 Suppiler_Number	    Total_PO_Value	    Average_PO_Value	    Payment_Terms
 7000020757	          7800	                7800	              NT75
-7003198849	          104325.36	         104325.36	          NT40
+7003198849	        104325.36	         104325.36	          NT40
