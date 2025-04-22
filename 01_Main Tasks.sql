@@ -1,32 +1,21 @@
 select * from EKKO;
 select * from EKPO;
+select * from LFA1;
+select * from CDHDR;
+select * from CDPOS;
+select * from EBAN;
+select * from TCUF;
+select * from TCURF;
+select * from TCURR;
+select * from TCURX;
 
 select count(*) from "EKKO";  -- 43 
-
-Output:
-count
-43
-  
 select count(*) from "EKPO";  -- 75
-
-Output
-count
-75
 
 -- 1. FOR PURCHASE ORDER :
 select A.EBELN, WAERS, NETWR FROM EKKO AS A    -- Select the Purchase Order number, currency, and net price
 JOIN EKPO AS B ON                              -- From the Purchase Order Header table (EKKO), aliased as A
 A.MANDT = B.MANDT AND A.EBELN = B.EBELN;       -- Join it with the Purchase Order Item table (EKPO), aliased as B
-
-Output :
-EBELN	      WAERS  	NETWR
-V411327955	USD	    226876
-V411586076	CAD    	246.4
-V411671123	CAD	    219.9
-V411713810	CAD	    239
-V411714298	CAD	    3252.4
-V411930981	CAD	    25000
-V411577831	CAD	    71000
 
 -- FOR INVOICING :
 
@@ -39,15 +28,6 @@ SELECT * FROM RSEG;
 -- WRBTR_CONVERTED (in BSEG table) & invoice header()
 SELECT SAMNR, REBZZ, SAKNR, AUFNR, LIFNR, SHKZG, CPUDT, WRBTR_CONVERTED 
 FROM BKPF AS BK JOIN BSEG BS ON BK.MANDT = BS.MANDT AND BK.BELNR = BS.BELNR;
-
-Outputs:
-SAMNR	    REBZZ	  SAKNR	    AUFNR	    LIFNR	    SHKZG	      CPUDT	              WRBTR_CONVERTED
-00000000	000	  0000455000	  	    7000032940	  H	    2023-07-19 00:00:00	      3840.0395652
-00000000	000	  0000455000	  	    7003198830	  H	    2023-11-30 00:00:00	      40380.8360099
-00000000	000	  0000455000	  	    7003198830	  H	    2023-11-30 00:00:00	      40320.229173
-00000000	000	  0000455000	  	    7003202125	  H	    2023-11-26 00:00:00	      6420.3996601
-00000000	000	  0000455000		      7003205015	  H	    2023-11-28 00:00:00	      1200.6319728
-00000000	000	  0000455000	      	7003299240	  H	    2023-11-29 00:00:00	      400000.9101677
 
 --- 3. challenge give me the result of total PO value and the payment terms by supplier number
 
@@ -65,16 +45,8 @@ JOIN EKPO
 ON EKKO.EBELN = EKPO.EBELN AND EKKO.MANDT = EKPO.MANDT
 GROUP BY 1,3;
 
-Output
-Suppiler_Number	    Total_PO_Value	Payment_Terms
-7000016966	          246.4	          NT40
-7000030006	          505000	        NT40
-7003201551	          5140.01	        NT30
-7003299240	          156917	        NT60
-
 -- 4. activity table
 SELECT * FROM TMP_P2P_EKKO_EKPO_JOYLINE; -- WORKING
 
-Output
-MANDT	EBELN	EBELP	AEDAT	ERNAM	EKORG	KTPNR	BSTYP	BANFN	BNFPO	WAERS	LIFNR	BUKRS	NETWR	NETPR	WKURS	MATNR	WERKS	TABKEY_EKKO	_CASE_KEY	TABKEY_EBAN	EKPO_AEDAT
-300	V411577569	00002	2023-05-27	H_BATCH	3220	00000	F	2100484002	00020	USD	7003289842	AC33	4776	9.95	1.36269	000000000310006231	A273	300V411577569	300V41157756900002	300210048400200020	2023-05-27
+
+
