@@ -1,0 +1,267 @@
+				
+			PURCHASE TO PAY 
+
+***************************************************************************
+
+Activity table :
+
+INSERT INTO _CEL_P2P_ACTIVITIES
+(
+      _CASE_KEY
+    , _ACTIVITY_EN
+    , _EVENTTIME
+    , _SORTING
+)
+
+Activity 1 : Create Purchase Requisition Item 
+
+SELECT
+    EKPO.MANDT || EKPO.EBELN || EKPO.EBELP AS _CASE_KEY
+    ,'Create Purchase Requisition Item' AS _ACTIVITY_EN
+    ,EBAN.BADAT AS _EVENTTIME
+    ,10 AS _SORTING
+FROM EKPO
+JOIN EKKO ON 1=1
+    AND EKPO.MANDT = EKKO.MANDT
+    AND EKPO.EBELN = EKKO.EBELN
+    AND EKKO.BSTYP = 'F'
+JOIN EBAN ON 1=1
+    AND EKPO.MANDT = EBAN.MANDT
+    AND EKPO.BANFN = EBAN.BANFN
+    AND EKPO.BNFPO = EBAN.BNFPO
+;
+
+
+Activity 2 : Create Purchase Order Item
+
+SELECT
+    EKPO.MANDT || EKPO.EBELN || EKPO.EBELP AS _CASE_KEY
+    ,'Create Purchase Order Item' AS _ACTIVITY_EN
+    ,EKKO.AEDAT AS _EVENTTIME
+    ,20 AS _SORTING
+FROM EKPO
+JOIN EKKO ON 1=1
+    AND EKPO.MANDT = EKKO.MANDT
+    AND EKPO.EBELN = EKKO.EBELN
+    AND EKKO.BSTYP = 'F'
+;
+
+
+Activity 3 : Change Price
+
+INSERT INTO _CEL_P2P_ACTIVITIES ("_CASE_KEY", "_ACTIVITY_EN", "_EVENTTIME", "_SORTING")
+
+SELECT
+    "EKPO"."MANDT" || "EKPO"."EBELN" || "EKPO"."EBELP" AS "_CASE_KEY",
+    'Change Price' AS "_ACTIVITY_EN",
+    CAST("CDHDR"."UDATE" AS DATE) + CAST("CDHDR"."UTIME" AS TIME) AS "_EVENTTIME",
+    25 AS "_SORTING"
+FROM "EKPO"
+JOIN "EKKO" ON 1=1
+    AND "EKPO"."MANDT" = "EKKO"."MANDT"
+    AND "EKPO"."EBELN" = "EKKO"."EBELN"
+    AND "EKKO"."BSTYP" = 'F'
+JOIN "CDPOS" ON 1=1
+    AND "CDPOS"."TABNAME" = 'EKPO'
+    AND "CDPOS"."TABKEY" = "EKPO"."MANDT" || "EKPO"."EBELN" || "EKPO"."EBELP"
+    AND "CDPOS"."FNAME" = 'NETPR'
+JOIN "CDHDR" ON 1=1
+    AND "CDHDR"."MANDANT" = "CDPOS"."MANDANT"
+    AND "CDPOS"."CHANGENR" = "CDHDR"."CHANGENR"
+    AND "CDPOS"."OBJECTCLAS" = "CDHDR"."OBJECTCLAS"
+    AND "CDPOS"."OBJECTID" = "CDHDR"."OBJECTID"
+;
+
+
+Activity 4 : Change Quantity
+
+INSERT INTO _CEL_P2P_ACTIVITIES ("_CASE_KEY", "_ACTIVITY_EN", "_EVENTTIME", "_SORTING")
+
+SELECT
+    "EKPO"."MANDT" || "EKPO"."EBELN" || "EKPO"."EBELP" AS "_CASE_KEY",
+    'Change Quantity' AS "_ACTIVITY_EN",
+    CAST("CDHDR"."UDATE" AS DATE) + CAST("CDHDR"."UTIME" AS TIME) AS "_EVENTTIME",
+    25 AS "_SORTING"
+FROM "EKPO"
+JOIN "EKKO" ON 1=1
+    AND "EKPO"."MANDT" = "EKKO"."MANDT"
+    AND "EKPO"."EBELN" = "EKKO"."EBELN"
+    AND "EKKO"."BSTYP" = 'F'
+JOIN "CDPOS" ON 1=1
+    AND "CDPOS"."TABNAME" = 'EKPO'
+    AND "CDPOS"."TABKEY" = "EKPO"."MANDT" || "EKPO"."EBELN" || "EKPO"."EBELP"
+    AND "CDPOS"."FNAME" = 'MENGE'
+JOIN "CDHDR" ON 1=1
+    AND "CDHDR"."MANDANT" = "CDPOS"."MANDANT"
+    AND "CDPOS"."CHANGENR" = "CDHDR"."CHANGENR"
+    AND "CDPOS"."OBJECTCLAS" = "CDHDR"."OBJECTCLAS"
+    AND "CDPOS"."OBJECTID" = "CDHDR"."OBJECTID"
+;
+
+
+
+Activity 5 : Vendor creates invoice
+
+SELECT
+    BSEG.MANDT || BSEG.BUKRS || BSEG.BELNR || BSEG.GJAHR || BSEG.BUZEI AS _CASE_KEY,  -- Unique identifier for the case
+    'Vendor creates invoice' AS _ACTIVITY_EN,                                         -- Activity description
+    BKPF.BLDAT AS _EVENTTIME,                                                         -- Document date as event timestamp
+    0 AS _SORTING                                                                     -- Sorting order
+FROM
+    BSEG AS BSEG
+JOIN
+    BKPF AS BKPF
+    ON  BSEG.MANDT = BKPF.MANDT
+    AND BSEG.BUKRS = BKPF.BUKRS
+    AND BSEG.BELNR = BKPF.BELNR
+    AND BSEG.GJAHR = BKPF.GJAHR
+
+    -- Filter conditions specific to this activity
+    AND BSEG.BSCHL = '31'             -- Posting key for vendor invoice
+    AND BKPF.BLDAT IS NOT NULL        -- Ensure event time is available
+;
+
+
+
+Activity 6 : Enter Invoice in SAP
+
+
+SELECT
+    BSEG.MANDT || BSEG.BUKRS || BSEG.BELNR || BSEG.GJAHR || BSEG.BUZEI AS _CASE_KEY,  
+    'Enter Invoice in SAP' AS _ACTIVITY_EN,                                           
+    CAST(BKPF.CPUDT AS TIMESTAMP) + CAST(BKPF.CPUTM AS INTERVAL HOUR TO SECOND) AS _EVENTTIME, 
+    10 AS _SORTING                                                                    
+FROM
+    BSEG AS BSEG
+JOIN
+    BKPF AS BKPF
+    ON  BSEG.MANDT = BKPF.MANDT
+    AND BSEG.BUKRS = BKPF.BUKRS
+    AND BSEG.BELNR = BKPF.BELNR
+    AND BSEG.GJAHR = BKPF.GJAHR
+
+    -- Filter conditions
+    AND BSEG.BSCHL = '31'                -- Posting key for vendor invoice
+    AND BKPF.CPUDT IS NOT NULL           -- Ensure document date exists
+    AND BKPF.CPUTM IS NOT NULL           -- Ensure document time exists
+;
+
+
+
+Activity 7 :  Set & Remove Payment Block Activities 
+
+INSERT INTO _CEL_AP_ACTIVITIES ("_CASE_KEY", "_ACTIVITY_EN", "_EVENTTIME", "_SORTING")
+
+SELECT
+    "BSEG"."MANDT" || "BSEG"."BUKRS" || "BSEG"."BELNR" || "BSEG"."GJAHR" || "BSEG"."BUZEI" AS "_CASE_KEY",
+    
+    CASE
+        WHEN "CDPOS"."VALUE_NEW" IS NULL THEN 'Remove payment block'
+        WHEN "CDPOS"."VALUE_OLD" IS NULL THEN 'Set payment block'
+    END AS "_ACTIVITY_EN",
+    
+    CAST("CDHDR"."UDATE" AS DATE) + CAST("CDHDR"."UTIME" AS TIME) AS "_EVENTTIME",
+    
+    CASE
+        WHEN "CDPOS"."VALUE_OLD" IS NULL THEN 20
+        WHEN "CDPOS"."VALUE_NEW" IS NULL THEN 30
+    END AS "_SORTING"
+
+FROM "BSEG"
+JOIN "BKPF" ON 1=1
+    AND "BSEG"."MANDT" = "BKPF"."MANDT"
+    AND "BSEG"."BUKRS" = "BKPF"."BUKRS"
+    AND "BSEG"."BELNR" = "BKPF"."BELNR"
+    AND "BSEG"."GJAHR" = "BKPF"."GJAHR"
+
+JOIN "CDPOS" ON 1=1
+    AND "CDPOS"."TABNAME" = 'BSEG'
+    AND "CDPOS"."TABKEY" = "BSEG"."MANDT" || "BSEG"."BUKRS" || "BSEG"."BELNR" || "BSEG"."GJAHR" || "BSEG"."BUZEI"
+    AND "CDPOS"."FNAME" = 'ZLSPR'
+    AND ("CDPOS"."VALUE_NEW" IS NULL OR "CDPOS"."VALUE_OLD" IS NULL)
+
+JOIN "CDHDR" ON 1=1
+    AND "CDHDR"."MANDANT" = "CDPOS"."MANDANT"
+    AND "CDPOS"."CHANGENR" = "CDHDR"."CHANGENR"
+    AND "CDPOS"."OBJECTCLAS" = "CDHDR"."OBJECTCLAS"
+    AND "CDPOS"."OBJECTID" = "CDHDR"."OBJECTID"
+
+WHERE "BSEG"."BSCHL" = '31'
+;
+
+
+Activity 8 : Clear Invoice
+
+
+INSERT INTO _CEL_AP_ACTIVITIES ("_CASE_KEY", "_ACTIVITY_EN", "_EVENTTIME", "_SORTING")
+
+SELECT
+    "BSEG"."MANDT" || "BSEG"."BUKRS" || "BSEG"."BELNR" || "BSEG"."GJAHR" || "BSEG"."BUZEI" AS "_CASE_KEY",
+    'Clear invoice' AS "_ACTIVITY_EN",
+    "BSEG"."AUGDT" AS "_EVENTTIME",
+    40 AS "_SORTING"
+FROM "BSEG"
+JOIN "BKPF" ON 1=1
+    AND "BSEG"."MANDT" = "BKPF"."MANDT"
+    AND "BSEG"."BUKRS" = "BKPF"."BUKRS"
+    AND "BSEG"."BELNR" = "BKPF"."BELNR"
+    AND "BSEG"."GJAHR" = "BKPF"."GJAHR"
+
+    AND "BSEG"."BSCHL" = '31'
+    AND "BSEG"."AUGDT" IS NOT NULL
+;
+ 
+
+Activity 9 : Due Date Expired
+
+
+INSERT INTO _CEL_AP_ACTIVITIES ("_CASE_KEY", "_ACTIVITY_EN", "_EVENTTIME", "_SORTING")
+
+SELECT
+    "BSEG"."MANDT" || "BSEG"."BUKRS" || "BSEG"."BELNR" || "BSEG"."GJAHR" || "BSEG"."BUZEI" AS "_CASE_KEY",
+    'Due Date Expired' AS "_ACTIVITY_EN",
+    CAST(
+        CASE
+            WHEN "BSEG"."ZBD3T" > 0 THEN "BSEG"."ZFBDT" + "BSEG"."ZBD3T"
+            WHEN "BSEG"."ZBD2T" > 0 THEN "BSEG"."ZFBDT" + "BSEG"."ZBD2T"
+            WHEN "BSEG"."ZBD1T" > 0 THEN "BSEG"."ZFBDT" + "BSEG"."ZBD1T"
+            ELSE "BSEG"."ZFBDT"
+        END
+    AS DATE) + CAST('000000' AS TIME) AS "_EVENTTIME",
+    50 AS "_SORTING"
+FROM "BSEG"
+JOIN "BKPF" ON 1=1
+    AND "BSEG"."MANDT" = "BKPF"."MANDT"
+    AND "BSEG"."BUKRS" = "BKPF"."BUKRS"
+    AND "BSEG"."BELNR" = "BKPF"."BELNR"
+    AND "BSEG"."GJAHR" = "BKPF"."GJAHR"
+    AND "BSEG"."BSCHL" = '31'
+    AND "BSEG"."ZFBDT" IS NOT NULL
+;
+
+
+
+**************************************************************************************
+
+
+		Creating Additional tables and extending fields:
+
+1. FOR EKPO :
+
+
+DROP TABLE IF EXISTS P2P_EKPO;
+
+CREATE TABLE "P2P_EKPO" AS (
+
+SELECT
+"EKPO".*,
+"EKPO". "MANDT" || "EKPO"."EBELN" || "EKPO"."EBELP" AS "_CASE_KEY"
+
+FROM EKPO
+JOIN EKKO ON 1=1
+AND EKPO.MANDT = EKKO.MANDT
+AND EKPO.EBELN = EKKO.EBELN
+AND EKKO.BSTYP = 'F'
+
+);
+s
