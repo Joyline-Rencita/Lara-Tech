@@ -313,6 +313,110 @@ WHERE 1=1
 
 =================================================================================================
 
+Table BKPF :
 
-##Table BKPF :
 
+A performant script:
+
+DROP TABLE IF EXISTS AP_BKPF;
+CREATE TABLE AP_BKPF AS
+SELECT BKPF.*
+FROM BKPF AS BKPF
+WHERE EXISTS (
+    SELECT 1 FROM BSEG WHERE 1=1
+        AND BSEG.MANDT=BKPF.MANDT
+        AND BSEG.BUKRS=BKPF.BUKRS
+        AND BSEG.BELNR=BKPF.BELNR
+        AND BSEG.GJAHR=BKPF.GJAHR
+        AND BSEG.BSCHL = '31'
+);
+
+SELECT ANALYZE_STATISTICS ('AP_BKPF');
+
+A less performant but working script
+
+DROP TABLE IF EXISTS "AP_BKPF";
+CREATE TABLE"AP_BKPF" AS
+SELECT DISTINCT 
+    BKPF.*
+FROM "BKPF"
+JOIN "BSEG" ON
+    "BSEG"."MANDT"="BKPF"."MANDT"
+    AND "BSEG"."BUKRS"="BKPF"."BUKRS"
+    AND "BSEG"."BELNR"="BKPF"."BELNR"
+    AND "BSEG"."GJAHR"="BKPF"."GJAHR"
+WHERE "BSEG"."BSCHL" = '31';
+
+
+====================================================================================
+
+
+        Table  BSEG :
+
+
+A performant script:
+
+DROP TABLE IF EXISTS AP_BSEG;
+CREATE TABLE AP_BSEG AS
+SELECT 
+    BSEG.*,
+    "BSEG"."MANDT"||"BSEG"."BUKRS"||"BSEG"."BELNR"||"BSEG"."GJAHR"||"BSEG"."BUZEI" AS "_CASE_KEY"
+FROM BSEG AS BSEG
+WHERE 1=1
+    AND BSEG.BSCHL = '31'
+    AND EXISTS (
+        SELECT 1 FROM BKPF WHERE 1=1
+            AND BSEG.MANDT=BKPF.MANDT
+            AND BSEG.BUKRS=BKPF.BUKRS
+            AND BSEG.BELNR=BKPF.BELNR
+            AND BSEG.GJAHR=BKPF.GJAHR
+);
+
+SELECT ANALYZE_STATISTICS ('AP_BSEG');
+
+A less performant but working script
+
+DROP TABLE IF EXISTS "AP_BSEG";
+CREATE TABLE "AP_BSEG" AS 
+SELECT DISTINCT 
+    "BSEG".*, "BSEG"."MANDT"||"BSEG"."BUKRS"||"BSEG"."BELNR"||"BSEG"."GJAHR"||"BSEG"."BUZEI" AS "_CASE_KEY"
+FROM "BSEG"
+JOIN "BKPF" ON
+    "BSEG"."MANDT"="BKPF"."MANDT"
+    AND "BSEG"."BUKRS"="BKPF"."BUKRS"
+    AND "BSEG"."BELNR"="BKPF"."BELNR"
+    AND "BSEG"."GJAHR"="BKPF"."GJAHR"
+WHERE "BSEG"."BSCHL" = '31';
+
+
+============================================================================================================
+
+
+    Table LFA1 :
+
+
+A performant script: 
+
+DROP TABLE IF EXISTS AP_LFA1;
+CREATE TABLE AP_LFA1 AS
+SELECT LFA1.*
+FROM LFA1 AS LFA1
+WHERE EXISTS (
+    SELECT 1 FROM BSEG WHERE 1=1
+        AND BSEG.MANDT=LFA1.MANDT
+        AND BSEG.LIFNR=LFA1.LIFNR
+        AND BSEG.BSCHL = '31'
+);
+
+SELECT ANALYZE_STATISTICS ('AP_LFA1');
+A less performant but working script
+
+DROP TABLE IF EXISTS "AP_LFA1";
+CREATE TABLE "AP_LFA1" AS 
+SELECT DISTINCT 
+    LFA1.*
+FROM "LFA1"
+JOIN "BSEG" ON
+    "BSEG"."MANDT"="LFA1"."MANDT"
+    AND "BSEG"."LIFNR"="LFA1"."LIFNR"
+WHERE "BSEG"."BSCHL" = '31';
