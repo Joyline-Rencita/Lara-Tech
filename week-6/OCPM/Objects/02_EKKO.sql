@@ -26,3 +26,22 @@ SELECT
 	"FRGKE" AS "FRGKE",
 	"FRGGR" AS "FRGGR"
 FROM "EKKO"
+
+******************************   POPULATING THE OBJECT CHANGES ****************************	
+
+SELECT
+	'Update_' || "CDPOS"."TABKEY" AS "ID",
+	"CDPOS"."TABKEY" AS "ObjectID", -- FROM EKPO COZ THEY ARE SAME
+	"CDPOS"."EVENTTIME" AS "Time", -- FROM CDHDR COZ OF SAME VALUE
+	"CDPOS"."FNAME" AS "Attribute",
+	"CDPOS"."VALUE_OLD" AS "OldValue",
+	"CDPOS"."VALUE_NEW" AS "NewValue",
+	"CDPOS"."USERNAME" AS "ChangedBy",
+	NULL AS "OperationType",
+	NULL AS "OperationID",
+	NULL AS "ExecutionType"
+FROM CDPOS
+JOIN EKKO  
+ON EKKO.MANDT || EKKO.EBELN  = CDPOS.MANDANT || CDPOS.ObjectID
+WHERE CDPOS.TABNAME = 'EKPO'
+AND "CDPOS"."CHNGIND" = 'U'
