@@ -1,3 +1,5 @@
+******************************   POPULATING THE OBJECT ATTRIBUTES ****************************
+
 SELECT
 	"EBELN" AS "ID",
 	"MANDT" AS "MANDT",
