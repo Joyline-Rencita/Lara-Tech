@@ -22,6 +22,8 @@ SELECT
 	"o_custom_JoylineEKKO"."ID" AS "ID",
 	"o_custom_JoylineEKPO"."ID" AS "JoylineEKPO"
 FROM "o_custom_JoylineEKKO"
-	LEFT JOIN "o_custom_JoylineEKPO"
+	LEFT JOIN "o_custom_JoylineEKPO"                                       ---   JOINED EKKO AND EKPO
 	ON "o_custom_JoylineEKKO"."ID" = "o_custom_JoylineEKPO"."EBELP"
+    LEFT JOIN "c_o_custom_JoylineEKPO"                                         ---   JOINED CDPOS AND EKPO
+    ON  "c_o_custom_JoylineEKPO"."ObjectID" = "o_custom_JoylineEKPO"."ID"
 -- WHERE <>
