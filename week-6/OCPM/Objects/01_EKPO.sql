@@ -1,3 +1,4 @@
+--   ******************************   POPULATING THE ATTRIBUTES ********************
 SELECT
 	"_CASE_KEY" AS "ID",
 	"EBELP" AS "EBELP",
@@ -57,3 +58,24 @@ FROM "EKPO"
 INNER JOIN 
     LARA AS EKKO ON 
     EKPO.EBELN = EKKO.EBELN
+
+
+-- ***************************    POPULATING CHANGES IN EKPO *************************
+
+
+SELECT
+	'Update_' || "CDPOS"."TABKEY" AS "ID",
+	"CDPOS"."TABKEY" AS "ObjectID", -- FROM EKPO
+	"CDPOS"."EVENTTIME" AS "Time", -- FROM CDHDR
+	"CDPOS"."FNAME" AS "Attribute",
+	"CDPOS"."VALUE_OLD" AS "OldValue",
+	"CDPOS"."VALUE_NEW" AS "NewValue",
+	"CDPOS"."USERNAME" AS "ChangedBy",
+	NULL AS "OperationType",
+	NULL AS "OperationID",
+	NULL AS "ExecutionType"
+FROM CDPOS
+JOIN EKPO  
+ON EKPO.MANDT || EKPO.EBELN || EKPO.EBELP = CDPOS.TABKEY
+WHERE CDPOS.TABNAME = 'EKPO'
+AND "CDPOS"."CHNGIND" = 'U'
