@@ -1,4 +1,4 @@
---   ******************************   POPULATING THE ATTRIBUTES ********************
+   ******************************   POPULATING THE OBJECT ATTRIBUTES ********************
 SELECT
 	"_CASE_KEY" AS "ID",
 	"EBELP" AS "EBELP",
@@ -60,7 +60,7 @@ INNER JOIN
     EKPO.EBELN = EKKO.EBELN
 
 
--- ***************************    POPULATING CHANGES IN EKPO *************************
+ ***************************    POPULATING OBJECT CHANGES  EKPO *******************************
 
 
 SELECT
