@@ -1,4 +1,4 @@
- ********************************************     POPULATING EVENT ATTRIBUTES *****************************************
+ ********************************************     POPULATING THE EVENT ATTRIBUTES *****************************************
 
 SELECT
     "o_custom_JoylineEKPO"."ID" AS "ID",
@@ -29,7 +29,7 @@ FROM "o_custom_JoylineEKPO"
  */
 
 
- *************************************       POPULATING EVENT RELATIONSHIPS ****************************************
+ ****************************************  POPULATING THE EVENT RELATIONSHIPS  ****************************************
 
 SELECT
 	"o_custom_JoylineEKKO"."ID" AS "ID",
