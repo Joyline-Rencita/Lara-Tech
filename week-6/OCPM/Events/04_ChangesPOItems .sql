@@ -8,7 +8,7 @@ SELECT
     "o_custom_JoylineEKPO"."MATKL" AS "materialGroupNum",
     "o_custom_JoylineEKPO"."NetwrConverted" AS "netValue",
     "o_custom_JoylineEKPO"."NetprConverted" AS "netPrice",
-    "EKPO"."OldValue" AS "OldValue",     -- Values are not fetched 
+    "EKPO"."OldValue" AS "OldValue",     
     "EKPO"."NewValue" AS "NewValue",      
     "EKPO"."ChangedBy" AS "UserName",     
     "EKPO"."Attribute" AS "changetype",
