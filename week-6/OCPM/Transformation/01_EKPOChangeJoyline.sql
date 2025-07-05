@@ -1,9 +1,14 @@
 -- EKPOChangeJoyline
 
-drop table if exists "EKPOChangeJoyline" ;
-create table "EKPOChangeJoyline" as 
-(select distinct "CDPOS".* 
-from "CDPOS"
-inner join "EKPO" 
-on "CDPOS"."TABKEY" = "EKPO"."_CASE_KEY"
-where "CDPOS"."TABNAME" = 'EKPO')
+DROP TABLE IF EXISTS "EKPOChangeJoyline";
+
+CREATE TABLE "EKPOChangeJoyline" AS
+SELECT DISTINCT 
+    "CDPOS".*
+FROM 
+    "CDPOS"
+INNER JOIN 
+    "EKPO"
+    ON "CDPOS"."TABKEY" = "EKPO"."_CASE_KEY"
+WHERE 
+    "CDPOS"."TABNAME" = 'EKPO';
