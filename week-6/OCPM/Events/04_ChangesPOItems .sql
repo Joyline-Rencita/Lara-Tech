@@ -10,7 +10,7 @@ SELECT
     "o_custom_JoylineEKPO"."NetprConverted" AS "netPrice",
     "EKPO"."OldValue" AS "OldValue",     -- Values are not fetched 
     "EKPO"."NewValue" AS "NewValue",     -- Values are not fetched 
-    "EKPO"."ChangedBy" AS "UserName",    -- Values are not fetched 
+    "EKPO"."ChangedBy" AS "UserName",     
     "EKPO"."Attribute" AS "changetype",
     NULL AS JoylineEKKO
 
