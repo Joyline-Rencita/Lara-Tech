@@ -11,6 +11,7 @@ SELECT
     "EKPO"."OldValue" AS "OldValue",     -- Values are not fetched 
     "EKPO"."NewValue" AS "NewValue",     -- Values are not fetched 
     "EKPO"."ChangedBy" AS "UserName",    -- Values are not fetched 
+    "EKPO"."Attribute" AS "changetype",
     NULL AS JoylineEKKO
 
 FROM "o_custom_JoylineEKPO"
@@ -27,7 +28,6 @@ FROM "o_custom_JoylineEKPO"
         WHEN CHANGES.FNAME = 'ZTERM' THEN 'Change Payment Terms'
 	END
  */
-
 
  ****************************************  POPULATING THE EVENT RELATIONSHIPS  ****************************************
 
