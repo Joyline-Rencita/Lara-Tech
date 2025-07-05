@@ -1,17 +1,18 @@
 ********************************  POPULATING THE EVENT ATTRIBUTES  *************************************
 
 SELECT
-	"o_custom_JoylineEKKO"."ID" AS "ID",
-	"o_custom_JoylineEKKO"."AEDAT" AS "Time",
-    "EKKO"."OBJECTID" AS "ChangesPO",
-    "EKKO"."Attribute" AS "Status",
-    "EKKO"."OldValue",
-    "EKKO"."NewValue",
+    "c_o_custom_JOYLINEEKPO"."ID" AS "ID",
+    "c_o_custom_JOYLINEEKPO"."Time" AS "Time",
+    "c_o_custom_JOYLINEEKPO"."OBJECTID" AS "ChangesPO",
+    "c_o_custom_JOYLINEEKPO"."Attribute" AS "Status",
+    "c_o_custom_JOYLINEEKPO"."OldValue",
+    "c_o_custom_JOYLINEEKPO"."NewValue",
+    "c_o_custom_JoylineEKPO"."Attribute" AS "changetype",
 	NULL AS "JoylineEKKO"
-FROM "o_custom_JoylineEKKO"
-	LEFT JOIN "c_o_custom_JoylineEKKO" AS EKKO
-	ON EKKO.OBJECTID = "o_custom_JoylineEKKO"."ID"
--- WHERE 
+FROM "c_o_custom_JOYLINEEKPO"
+	-- LEFT JOIN "c_o_custom_JoylineEKKO" AS EKKO
+	-- ON EKKO.OBJECTID = "o_custom_JoylineEKKO"."ID"
+    -- WHERE 
 /*
 CASE 
 		WHEN CHANGES.FNAME = 'LOEKZ' AND CHANGES.VALUE_NEW ='S' THEN 'Block Purchase Order Item'
