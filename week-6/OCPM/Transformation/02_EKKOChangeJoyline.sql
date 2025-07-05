@@ -2,11 +2,15 @@ DROP TABLE IF EXISTS "EKKOChangeJoyline";
 
 CREATE TABLE "EKKOChangeJoyline" AS
 SELECT DISTINCT 
-    "CDPOS".*
+    "CDHDR".*
 FROM 
-    "CDPOS"
+    "CDHDR"
 INNER JOIN 
     "EKKO"
-    ON "CDPOS"."OBJECTID" = "EKKO"."EBELN"
+    ON "CDHDR"."OBJECTID" = "EKKO"."EBELN"
 WHERE 
-    "CDPOS"."TABNAME" = 'EKKO';
+    "CDHDR"."TABNAME" = 'EKKO';
+
+
+SELECT * FROM EKKOChangeJoyline;
+-- SELECT * FROM EKPOChangeJoyline;
