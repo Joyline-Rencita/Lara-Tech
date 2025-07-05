@@ -1,4 +1,5 @@
- ********************************************     POPULATING THE EVENT ATTRIBUTES *****************************************
+
+********************************************     POPULATING THE EVENT ATTRIBUTES *****************************************
 
 SELECT
     "o_custom_JoylineEKPO"."ID" AS "ID",
