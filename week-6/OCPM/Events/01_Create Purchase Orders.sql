@@ -13,7 +13,7 @@ SELECT
     "o_custom_JoylineEKKO"."EKGRP" AS "PurchasingGroup",
     "o_custom_JoylineEKKO"."ORDEREDDATE" AS "OrderDate",
     "o_custom_JoylineEKKO"."SUBMITDATE" AS "SubmittedDate",
-    NULL AS JoylineEKKO
+    "EKKO"."ID" AS JoylineEKKO
 FROM "o_custom_JoylineEKKO"
 	LEFT JOIN "c_o_custom_JoylineEKKO" AS EKKO
 	ON EKKO.OBJECTID = "o_custom_JoylineEKKO"."ID"
