@@ -8,7 +8,7 @@ SELECT
     "c_o_custom_JOYLINEEKPO"."OldValue",
     "c_o_custom_JOYLINEEKPO"."NewValue",
     "c_o_custom_JoylineEKPO"."Attribute" AS "changetype",
-	NULL AS "JoylineEKKO"
+    "c_o_custom_JoylineEKPO"."ID" AS "JoylineEKKO"
 FROM "c_o_custom_JOYLINEEKPO"
 	-- LEFT JOIN "c_o_custom_JoylineEKKO" AS EKKO
 	-- ON EKKO.OBJECTID = "o_custom_JoylineEKKO"."ID"
