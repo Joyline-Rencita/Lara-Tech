@@ -9,10 +9,10 @@ SELECT
     "o_custom_JoylineEKPO"."MATKL" AS "materialGroupNum",
     "o_custom_JoylineEKPO"."NetwrConverted" AS "netValue",
     "o_custom_JoylineEKPO"."NetprConverted" AS "netPrice",
-    "EKPO"."OldValue" AS "OldValue",     -- Values are not fetched 
-    "EKPO"."NewValue" AS "NewValue",     -- Values are not fetched 
-    "EKPO"."ChangedBy" AS "UserName",    -- Values are not fetched 
-    NULL AS JoylineEKKO
+    "EKPO"."OldValue" AS "OldValue",      
+    "EKPO"."NewValue" AS "NewValue",     
+    "EKPO"."ChangedBy" AS "UserName",
+    "EKPO"."ID" AS JoylineEKKO 
 
 FROM "o_custom_JoylineEKPO"
 	LEFT JOIN "c_o_custom_JoylineEKPO" AS EKPO
