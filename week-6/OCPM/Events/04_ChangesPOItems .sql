@@ -13,7 +13,7 @@ SELECT
     "EKPO"."NewValue" AS "NewValue",      
     "EKPO"."ChangedBy" AS "UserName",     
     "EKPO"."Attribute" AS "changetype",
-    NULL AS JoylineEKKO
+    "EKPO"."ID" AS JoylineEKKO
 
 FROM "o_custom_JoylineEKPO"
 	LEFT JOIN "c_o_custom_JoylineEKPO" AS EKPO
