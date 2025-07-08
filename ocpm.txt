@@ -184,6 +184,32 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 
 ==============================================================================================================================================
 
+*******************                  TABLES              ***********************
+
+🛒 P2P (Procure-to-Pay) — Invoice-Related Tables
+🔹 Core Tables
+
+| Table Name | Description                    | Object/Event Involved                 |
+| ---------- | ------------------------------ | ------------------------------------- |
+| `BKPF`     | Accounting Document Header     | Invoice Posted, Payment Made          |
+| `BSEG`     | Accounting Document Line Items | Vendor, GL Account, Amount            |
+| `RSEG`     | MM Invoice Document Items      | Link Invoice to PO (`EBELN`, `EBELP`) |
+| `EKKO`     | Purchase Order Header          | PO Object                             |
+| `EKPO`     | Purchase Order Item            | PO Line Items                         |
+| `MKPF`     | Goods Movement Header          | Goods Receipt (GR)                    |
+| `MSEG`     | Goods Movement Line Items      | GR Line Details                       |
+| `LFA1`     | Vendor Master                  | Vendor Details                        |
+| `CDPOS`    | Change Document Items          | Change Events (PO item, etc.)         |
+
+
+💰 O2C (Order-to-Cash) — Invoice-Related Tables
+
+🔹 Core Tables
+
+
+
+==============================================================================================================================================
+
 
 🛒 P2P (Procure to Pay) — Story: Buying a Laptop from Vendor
 🎭 Objects:
