@@ -206,6 +206,29 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 
 🔹 Core Tables
 
+| Table Name | Description                    | Object/Event Involved             |
+| ---------- | ------------------------------ | --------------------------------- |
+| `VBRK`     | Billing Document Header        | Customer Invoice Header           |
+| `VBRP`     | Billing Document Items         | Invoice Line Items                |
+| `VBAK`     | Sales Order Header             | Sales Order Object                |
+| `VBAP`     | Sales Order Items              | SO Line Items                     |
+| `LIKP`     | Delivery Header                | Delivery Header                   |
+| `LIPS`     | Delivery Items                 | Delivery Line Details             |
+| `BKPF`     | Accounting Document Header     | FI Payment after invoice          |
+| `BSEG`     | Accounting Document Line Items | Customer, Revenue, etc.           |
+| `KNA1`     | Customer Master                | Customer Details                  |
+| `CDPOS`    | Change Document Items          | Change Events (Sales Order, etc.) |
+
+🔧 Supporting Tables (Used in Both P2P and O2C)
+
+| Table Name | Description                            |
+| ---------- | -------------------------------------- |
+| `CDHDR`    | Change Document Header                 |
+| `T001`     | Company Code Master                    |
+| `T003`     | Document Types                         |
+| `SKA1`     | G/L Account Master (Chart of Accounts) |
+| `LFB1`     | Vendor Company Code Data               |
+| `KNB1`     | Customer Company Code Data             |
 
 
 ==============================================================================================================================================
