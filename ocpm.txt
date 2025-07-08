@@ -248,3 +248,29 @@ Customer	(not used)	KNA1
 Vendor	LFA1	(not used)
 Sales Order	(not used)	VBAK, VBAP
 Delivery	(not used)	LIKP, LIPS
+
+==================================================================================================================
+
+🧾 What is an Invoice?
+An invoice is a bill.
+
+In P2P, the vendor sends the invoice to your company (you pay them).
+
+In O2C, your company sends an invoice to the customer (they pay you).
+
+So invoices can happen in both P2P and O2C — depending on who is sending and receiving.
+
+🧱 Where Is Invoice Stored in ERP (SAP)?
+P2P (Vendor invoice):
+Table	Description
+BKPF	FI document header — invoice posted info
+RSEG	Invoice item linked to PO
+BSEG	Line items — vendor, GL accounts, amounts
+
+O2C (Customer invoice):
+Table	Description
+VBRK	Billing document header
+VBRP	Billing item details
+BKPF	FI document for payment (after invoice is paid)
+
+
