@@ -183,3 +183,68 @@ M:N	Many to Many	Many students join many clubs
 OCPM	Tracks all objects and events	Like writing a story with all characters and scenes
 
 ==============================================================================================================================================
+
+
+🛒 P2P (Procure to Pay) — Story: Buying a Laptop from Vendor
+🎭 Objects:
+Object Type	Example ID	Comes from Table
+Purchase Order (PO)	PO123	EKKO (header), EKPO (items)
+Goods Receipt (GR)	GR001	MKPF (header), MSEG (items)
+Invoice	INV001	BKPF (header), RSEG (MM invoice item)
+Vendor	VEND01	LFA1 (Vendor master)
+Payment	PAY001	BKPF (FI Document), BSEG (line item)
+
+🎬 Events and Source Tables:
+Event Name	Happens In Table(s)	Involves These Objects	Relationship
+PO Created	EKKO (PO header)	PO, Vendor	1 PO → 1 Vendor
+Goods Received	MKPF + MSEG	PO, GR	1 PO → M GRs
+Invoice Posted	BKPF + RSEG	PO, Invoice, Vendor	1 Invoice → 1 Vendor, 1:M to PO
+Payment Made	BKPF + BSEG	Invoice, Vendor	1:M — 1 Invoice to many vendor lines
+PO Item Changed	CDPOS for EKPO	PO	1:M — PO has many item changes
+
+🧾 OCPM Format for P2P Event Example
+Event ID	Activity	Timestamp	Object Type	Object ID
+E1	PO Created	2024-01-01	PO	PO123
+E1	PO Created	2024-01-01	Vendor	VEND01
+E2	Goods Received	2024-01-05	PO	PO123
+E2	Goods Received	2024-01-05	GR	GR001
+E3	Invoice Posted	2024-01-10	Invoice	INV001
+E3	Invoice Posted	2024-01-10	PO	PO123
+E3	Invoice Posted	2024-01-10	Vendor	VEND01
+
+💰 O2C (Order to Cash) — Story: Selling a Phone to Customer
+🎭 Objects:
+Object Type	Example ID	Comes from Table
+Sales Order	SO101	VBAK (header), VBAP (items)
+Delivery	DL001	LIKP (header), LIPS (items)
+Invoice	INV999	VBRK (header), VBRP (items)
+Customer	CUST01	KNA1
+Payment	PAY999	BKPF (FI Document), BSEG (line items)
+
+🎬 Events and Source Tables:
+Event Name	Happens In Table(s)	Involves These Objects	Relationship
+Sales Order Created	VBAK (Sales Order)	Sales Order, Customer	1 SO → 1 Customer
+Delivery Done	LIKP + LIPS	Sales Order, Delivery	1:M SO → Deliveries
+Invoice Created	VBRK + VBRP	Sales Order, Invoice, Customer	1:M, or M:N
+Payment Received	BKPF + BSEG	Invoice, Customer	1:M
+SO Item Changed	CDPOS for VBAP	Sales Order	1:M
+
+🧾 OCPM Format for O2C Event Example
+Event ID	Activity	Timestamp	Object Type	Object ID
+E10	SO Created	2024-02-01	Sales Order	SO101
+E10	SO Created	2024-02-01	Customer	CUST01
+E11	Delivery Done	2024-02-03	Sales Order	SO101
+E11	Delivery Done	2024-02-03	Delivery	DL001
+E12	Invoice Created	2024-02-05	Invoice	INV999
+E12	Invoice Created	2024-02-05	Sales Order	SO101
+E12	Invoice Created	2024-02-05	Customer	CUST01
+
+🧠 Final Takeaways
+Concept	P2P Tables	O2C Tables
+PO	EKKO, EKPO	(not used)
+GR	MKPF, MSEG	(not used)
+Invoice	BKPF, RSEG	VBRK, VBRP
+Customer	(not used)	KNA1
+Vendor	LFA1	(not used)
+Sales Order	(not used)	VBAK, VBAP
+Delivery	(not used)	LIKP, LIPS
