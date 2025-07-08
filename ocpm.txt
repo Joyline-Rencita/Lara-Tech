@@ -273,4 +273,42 @@ VBRK	Billing document header
 VBRP	Billing item details
 BKPF	FI document for payment (after invoice is paid)
 
+🧩 Objects Related to an Invoice
+Let’s take an invoice INV001 and list what it’s connected to.
 
+🔸 In P2P:
+Invoice ID = INV001 (from BKPF)
+
+Related to:
+
+PO = PO123 (from RSEG.EBELN)
+
+Vendor = VEND01 (from BSEG.LIFNR)
+
+Payment = PAY001 (from BKPF/BSEG after payment)
+
+🔸 In O2C:
+Invoice ID = INV999 (from VBRK)
+
+Related to:
+
+Sales Order = SO101 (from VBRK.VBELN)
+
+Customer = CUST01 (from VBRK.KUNAG)
+
+Payment = PAY999 (from BKPF/BSEG after payment)
+
+🔗 What Are the Relationships?
+Let’s look at how they are connected (like family tree):
+
+🔸 P2P — Vendor Invoice
+Object	Table	How it's related to invoice
+PO	RSEG	1 invoice to many PO items (1:M)
+Vendor	BSEG	1 invoice to 1 vendor (1:1)
+Payment	BKPF	1 invoice may be paid by multiple payments (M:N)
+
+🔸 O2C — Customer Invoice
+Object	Table	How it's related to invoice
+Sales Order	VBRK	1 invoice from 1 or many SOs (1:M or M:N)
+Customer	VBRK	1 invoice to 1 customer (1:1)
+Payment	BKPF	M:N — multiple payments per invoice or multiple invoices in one payment
