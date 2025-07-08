@@ -1,0 +1,185 @@
+***************************************************************      BASICS      ***************************************************************
+
+💼 1. What is an ERP System?
+Imagine a big shop like Amazon.
+
+It has:
+
+People ordering things (Customers)
+
+People buying goods to keep in stock (Procurement)
+
+People creating bills (Invoices)
+
+People collecting money (Sales)
+
+People paying suppliers (Finance)
+
+To manage this, they use a big software called ERP (like SAP). ERP stores all actions in tables.
+
+🧱 2. Tables in ERP (SAP)
+Tables are like Excel sheets where everything is recorded.
+
+Example:
+Table	What's inside
+EKKO	Purchase order info
+VBAK	Sales order info
+BKPF	Invoice/billing document
+LIPS	Delivery info
+MKPF	Goods receipt
+
+But just tables are boring. You need to know what happened, when, and to what.
+
+🧠 3. What is an Object?
+An object is a thing the business cares about and tracks.
+
+Think of objects like characters in a story:
+
+🧾 PO (Purchase Order)
+
+🧑 Vendor
+
+🧍 Customer
+
+💰 Invoice
+
+📦 Delivery
+
+📄 Sales Order
+
+You want to know what happened to these objects over time.
+
+🎬 4. What is an Event?
+An event is something that happens to an object.
+
+Think of events like actions in the story:
+
+PO Created
+
+Goods Received
+
+Invoice Posted
+
+Payment Made
+
+Sales Order Created
+
+Delivery Done
+
+Each event has:
+
+What happened (Activity)
+
+When it happened (Timestamp)
+
+What it happened to (Object)
+
+🔁 5. Why Relationships Matter
+Relationships tell us how objects are connected.
+
+Let’s say:
+
+One PO (Purchase Order) has many items. ✅ That’s 1 to many (1:M)
+
+One Vendor sends multiple invoices. ✅ That’s 1:M
+
+One Invoice could pay for many POs (rare). ❗ That’s many to many (M:N)
+
+Without relationships, we can’t know which invoice belongs to which PO or vendor.
+
+🛒 6. P2P Example (Procure to Pay)
+🎯 Goal: Company buys a laptop from Vendor
+👥 Objects:
+PO123 (Purchase Order)
+
+GR001 (Goods Receipt)
+
+INV001 (Invoice)
+
+VendorX
+
+🎥 Events:
+PO Created for laptop (PO123)
+
+Goods Received (GR001)
+
+Invoice Posted (INV001)
+
+Payment Made
+
+🧩 Tables & Relationships:
+Table	Object	Event	Related To	Relationship
+EKKO	PO	PO Created	Vendor (LIFNR)	1:1
+EKPO	PO Item	-	PO (EKKO)	1:M
+MKPF	GR	Goods Received	PO (EBELN)	1:M
+RSEG	Invoice Item	Invoice Posted	PO (EBELN)	1:M
+BKPF	Invoice	Payment Made	Vendor (LIFNR)	1:1
+
+💰 7. O2C Example (Order to Cash)
+🎯 Goal: Customer orders a phone from your company
+👥 Objects:
+SO101 (Sales Order)
+
+DL001 (Delivery)
+
+INV999 (Invoice)
+
+CustomerA
+
+🎥 Events:
+Sales Order Created (SO101)
+
+Delivery Done (DL001)
+
+Invoice Generated (INV999)
+
+Payment Received
+
+🧩 Tables & Relationships:
+Table	Object	Event	Related To	Relationship
+VBAK	Sales Order	Order Created	Customer (KUNNR)	1:1
+VBAP	Order Item	-	Sales Order (VBAK)	1:M
+LIKP	Delivery	Delivery Created	Sales Order (VBELN)	1:M
+VBRK	Billing	Invoice Created	Sales Order or Delivery	1:M
+KNA1	Customer	Payment Received	Billing (VBRK)	1:M
+
+🔗 8. Which Relationship to Use?
+Use the one that makes sense based on the data connection:
+
+Type	When to use	Example
+1:1	One thing matches exactly one thing	One invoice = one vendor
+1:M	One thing has many related things	One PO = many PO items
+M:N	Many things relate to many others	One invoice pays many POs (rare)
+
+In OCPM, all of them are allowed! That’s the beauty.
+
+You just link each event to all related objects.
+
+🧾 9. What OCPM Event Log Looks Like
+OCPM doesn’t force you to pick just one object like CCPM.
+Instead, every event can be linked to many objects.
+
+Event ID	Activity	Timestamp	Object Type	Object ID
+E1	PO Created	2024-01-01	PO	PO123
+E1	PO Created	2024-01-01	Vendor	VEND01
+E2	Invoice Posted	2024-01-05	Invoice	INV001
+E2	Invoice Posted	2024-01-05	PO	PO123
+E2	Invoice Posted	2024-01-05	Vendor	VEND01
+
+This lets you analyze:
+
+How many POs were invoiced late?
+
+Which vendors send many invoices but don’t get paid?
+
+📌 10. Summary
+Concept	Meaning	Child-like Explanation
+Object	A business item	Like a character in a story (PO, Vendor, Invoice)
+Event	Something that happens	Like an action in the story (PO created, Payment)
+Relationship	How objects connect	Like "PO belongs to Vendor", "PO has items"
+1:1	One to One	One student has one ID card
+1:M	One to Many	One mom has many kids
+M:N	Many to Many	Many students join many clubs
+OCPM	Tracks all objects and events	Like writing a story with all characters and scenes
+
+==============================================================================================================================================
