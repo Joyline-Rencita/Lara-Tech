@@ -1,0 +1,59 @@
+🧾 Goal: Create an "Invoice Event" with all related objects
+We want to capture:
+
+Invoice number, date, amount
+
+Related PO(s)
+
+Related vendor
+
+Items billed
+
+(Optional) Payment later
+
+✅ Tables You Need to Join for Invoicing (P2P)
+
+| No. | Table  | Purpose                            | Join Field                                            | Relation Type |
+| --- | ------ | ---------------------------------- | ----------------------------------------------------- | ------------- |
+| 1️⃣ | `BKPF` | Invoice header (accounting doc)    | `BKPF.BELNR = RSEG.BELNR`                             | 1:1           |
+| 2️⃣ | `RSEG` | MM invoice items (PO info)         | `RSEG.EBELN = EKKO.EBELN`                             | M:1           |
+| 3️⃣ | `EKKO` | PO header (get vendor, company)    | `EKKO.EBELN = EKPO.EBELN`                             | 1\:M          |
+| 4️⃣ | `EKPO` | PO items (optional for line match) | `RSEG.EBELN = EKPO.EBELN AND RSEG.EBELP = EKPO.EBELP` | 1:1           |
+| 5️⃣ | `BSEG` | Line item details (get vendor ID)  | `BKPF.BELNR = BSEG.BELNR`                             | 1\:M          |
+| 6️⃣ | `LFA1` | Vendor master data                 | `BSEG.LIFNR = LFA1.LIFNR`                             | M:1           |
+
+          +------------+
+          |   BKPF     |  ←── Accounting doc (invoice)
+          +------------+
+               |
+         1:1   |
+               ↓
+          +------------+
+          |   RSEG     |  ←── Invoice item (linked to PO item)
+          +------------+
+               |
+         M:1   |
+               ↓
+          +------------+
+          |   EKKO     |  ←── PO header
+          +------------+
+               |
+         1:M   |
+               ↓
+          +------------+
+          |   EKPO     |  ←── PO item
+          +------------+
+
+BKPF  →  BSEG   (1:M)  →  LFA1 (vendor)
+
+💡 Why Join Each Table?
+
+| Table  | What It Adds                                |
+| ------ | ------------------------------------------- |
+| `BKPF` | Invoice doc type, date, company code        |
+| `RSEG` | PO number and item number linked to invoice |
+| `EKKO` | PO details like vendor and purchasing org   |
+| `EKPO` | Item-level info like material, quantity     |
+| `BSEG` | Amounts, vendor IDs, accounting details     |
+| `LFA1` | Vendor name, address, and metadata          |
+
