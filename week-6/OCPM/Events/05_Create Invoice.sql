@@ -10,6 +10,7 @@ SELECT
     "o_custom_JoylineRSEG"."GJAHR" as "FiscalYear",
     "o_custom_JoylineRSEG"."NetwrEkpo" AS "NetOrderValue",
     "o_custom_JoylineRSEG"."NetprEkpo" AS "NetPrice",
+    "o_custom_JoylineLFA1"."ERNAM" AS "InvoiceCreator",
     "o_custom_JoylineRSEG"."JoylineEKPORSEG_ID" AS "JoylineLFA1"
 FROM "o_custom_JoylineRSEG"
 	LEFT JOIN "o_custom_JoylineLFA1"
