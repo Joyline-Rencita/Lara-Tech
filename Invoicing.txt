@@ -57,3 +57,14 @@ BKPF  →  BSEG   (1:M)  →  LFA1 (vendor)
 | `BSEG` | Amounts, vendor IDs, accounting details     |
 | `LFA1` | Vendor name, address, and metadata          |
 
+*******************************************************************************************************************
+
+| Table A | Table B | Relationship | Primary Key in A  | Foreign Key in B |
+| ------- | ------- | ------------ | ----------------- | ---------------- |
+| `BKPF`  | `RSEG`  | **1\:M**     | `BELNR, GJAHR`    | `BELNR, GJAHR`   |
+| `RSEG`  | `EKKO`  | **M:1**      | `EBELN`           | `EBELN`          |
+| `EKKO`  | `EKPO`  | **1\:M**     | `EBELN`           | `EBELN`          |
+| `RSEG`  | `EKPO`  | **1:1**      | `EBELN, EBELP`    | `EBELN, EBELP`   |
+| `BKPF`  | `BSEG`  | **1\:M**     | `BELNR, GJAHR`    | `BELNR, GJAHR`   |
+| `BSEG`  | `LFA1`  | **M:1**      | `LIFNR` (in LFA1) | `LIFNR`          |
+
