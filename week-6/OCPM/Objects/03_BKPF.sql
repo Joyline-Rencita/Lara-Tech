@@ -1,3 +1,5 @@
+******************************   POPULATING THE OBJECT ATTRIBUTES ****************************
+
 SELECT
 	TRY_CAST("BELNR" AS VARCHAR(255)) AS "ID",
 	"MANDT" AS "MANDT",
@@ -29,3 +31,4 @@ SELECT
 	"KURST" AS "KURST",
 	"BUKRS" AS "JoylineRSEG"
 FROM "BKPF"
+
