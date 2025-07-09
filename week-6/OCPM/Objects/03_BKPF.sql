@@ -1,4 +1,4 @@
-******************************   POPULATING THE OBJECT ATTRIBUTES ****************************
+******************************   POPULATING THE OBJECT ATTRIBUTES   ****************************
 
 SELECT
 	TRY_CAST("BELNR" AS VARCHAR(255)) AS "ID",
@@ -32,3 +32,4 @@ SELECT
 	"BUKRS" AS "JoylineRSEG"
 FROM "BKPF"
 
+******************************   POPULATING THE OBJECT CHANGES   ****************************	
