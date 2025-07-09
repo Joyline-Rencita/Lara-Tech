@@ -10,4 +10,4 @@ FROM "o_custom_JoylineRSEG"
 	ON "o_custom_JoylineBKPF"."GJAHR" = "o_custom_JoylineRSEG"."GJAHR"
 -- WHERE <>
 
-  ********************************  POPULATING THE EVENT RELATIONSHIPS  *************************************
+  ********************************    POPULATING THE EVENT RELATIONSHIPS   *************************************
