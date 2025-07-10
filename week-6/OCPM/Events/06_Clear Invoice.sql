@@ -11,3 +11,4 @@ FROM "o_custom_JoylineRSEG"
 -- WHERE <>
 
   ********************************    POPULATING THE EVENT RELATIONSHIPS   *************************************
+
