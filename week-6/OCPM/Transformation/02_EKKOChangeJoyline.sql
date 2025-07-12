@@ -13,4 +13,4 @@ WHERE
 
 
 SELECT * FROM EKKOChangeJoyline;
--- SELECT * FROM EKPOChangeJoyline;
+SELECT * FROM EKPOChangeJoyline;
