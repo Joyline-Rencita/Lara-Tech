@@ -93,21 +93,17 @@ BKPF	Invoice	Payment Made	Vendor (LIFNR)	    1:1
 💰 7. O2C Example (Order to Cash)
 🎯 Goal: Customer orders a phone from your company
 👥 Objects:
+
 SO101 (Sales Order)
-
 DL001 (Delivery)
-
 INV999 (Invoice)
 
 CustomerA
 
 🎥 Events:
 Sales Order Created (SO101)
-
 Delivery Done (DL001)
-
 Invoice Generated (INV999)
-
 Payment Received
 
 🧩 Tables & Relationships:
