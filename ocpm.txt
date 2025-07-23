@@ -204,8 +204,9 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 
 💰 O2C (Order-to-Cash) — Invoice-Related Tables
 
-🔹 Core Tables
+🔹 Core Tables:
 
++------------+--------------------------------+-----------------------------------+
 | Table Name | Description                    | Object/Event Involved             |
 | ---------- | ------------------------------ | --------------------------------- |
 | `VBRK`     | Billing Document Header        | Customer Invoice Header           |
@@ -218,9 +219,11 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 | `BSEG`     | Accounting Document Line Items | Customer, Revenue, etc.           |
 | `KNA1`     | Customer Master                | Customer Details                  |
 | `CDPOS`    | Change Document Items          | Change Events (Sales Order, etc.) |
++------------+--------------------------------+-----------------------------------+
 
 🔧 Supporting Tables (Used in Both P2P and O2C)
 
++------------+----------------------------------------+
 | Table Name | Description                            |
 | ---------- | -------------------------------------- |
 | `CDHDR`    | Change Document Header                 |
@@ -229,7 +232,7 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 | `SKA1`     | G/L Account Master (Chart of Accounts) |
 | `LFB1`     | Vendor Company Code Data               |
 | `KNB1`     | Customer Company Code Data             |
-
++------------+----------------------------------------+
 
 ==============================================================================================================================================
 
