@@ -184,7 +184,7 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 
 ==============================================================================================================================================
 
-*******************                  TABLES              ***********************
+**************************      TABLES      *******************************
 
 🛒 P2P (Procure-to-Pay) — Invoice-Related Tables
 🔹 Core Tables
