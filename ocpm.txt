@@ -160,11 +160,11 @@ OCPM doesn’t force you to pick just one object like CCPM.
 Instead, every event can be linked to many objects.
 
 Event ID	Activity	Timestamp	Object Type	Object ID
-E1	PO Created	2024-01-01	PO	PO123
-E1	PO Created	2024-01-01	Vendor	VEND01
-E2	Invoice Posted	2024-01-05	Invoice	INV001
-E2	Invoice Posted	2024-01-05	PO	PO123
-E2	Invoice Posted	2024-01-05	Vendor	VEND01
+E1	PO Created	    2024-01-01	PO	      PO123
+E1	PO Created	    2024-01-01	Vendor	  VEND01
+E2	Invoice Posted	2024-01-05	Invoice	  INV001
+E2	Invoice Posted	2024-01-05	PO	      PO123
+E2	Invoice Posted	2024-01-05	Vendor	  VEND01
 
 This lets you analyze:
 
