@@ -50,7 +50,7 @@ BKPF  →  BSEG   (1:M)  →  LFA1 (vendor)
 
 💡 Why Join Each Table?
 
-
+--------------------------------------------------------
 | Table  | What It Adds                                |
 | ------ | ------------------------------------------- |
 | `BKPF` | Invoice doc type, date, company code        |
@@ -59,6 +59,7 @@ BKPF  →  BSEG   (1:M)  →  LFA1 (vendor)
 | `EKPO` | Item-level info like material, quantity     |
 | `BSEG` | Amounts, vendor IDs, accounting details     |
 | `LFA1` | Vendor name, address, and metadata          |
+--------------------------------------------------------
 
 *******************************************************************************************************************
 
