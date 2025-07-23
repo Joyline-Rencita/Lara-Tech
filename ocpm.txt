@@ -107,6 +107,7 @@ Invoice Generated (INV999)
 Payment Received
 
 🧩 Tables & Relationships:
+
 Table	Object	Event	Related To	Relationship
 VBAK	Sales Order	Order Created	Customer (KUNNR)	1:1
 VBAP	Order Item	-	Sales Order (VBAK)	1:M
@@ -138,7 +139,6 @@ E2	Invoice Posted	2024-01-05	Vendor	  VEND01
 This lets you analyze:
 
 How many POs were invoiced late?
-
 Which vendors send many invoices but don’t get paid?
 
 📌 10. Summary
@@ -153,7 +153,9 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 
 ==============================================================================================================================================
 
+
 **************************      TABLES      *******************************
+
 
 🛒 P2P (Procure-to-Pay) — Invoice-Related Tables
 🔹 Core Tables
@@ -207,6 +209,7 @@ OCPM	Tracks all objects and events	Like writing a story with all characters and 
 
 
 🛒 P2P (Procure to Pay) — Story: Buying a Laptop from Vendor
+
 🎭 Objects:
 Object Type	Example ID	Comes from Table
 Purchase Order (PO)	PO123	EKKO (header), EKPO (items)
@@ -234,6 +237,7 @@ E3	Invoice Posted	2024-01-10	PO	PO123
 E3	Invoice Posted	2024-01-10	Vendor	VEND01
 
 💰 O2C (Order to Cash) — Story: Selling a Phone to Customer
+
 🎭 Objects:
 Object Type	Example ID	Comes from Table
 Sales Order	SO101	VBAK (header), VBAP (items)
@@ -314,9 +318,7 @@ Invoice ID = INV999 (from VBRK)
 Related to:
 
 Sales Order = SO101 (from VBRK.VBELN)
-
 Customer = CUST01 (from VBRK.KUNAG)
-
 Payment = PAY999 (from BKPF/BSEG after payment)
 
 🔗 What Are the Relationships?
