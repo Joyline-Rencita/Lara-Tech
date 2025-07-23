@@ -6,13 +6,9 @@ Imagine a big shop like Amazon.
 It has:
 
 People ordering things (Customers)
-
 People buying goods to keep in stock (Procurement)
-
 People creating bills (Invoices)
-
 People collecting money (Sales)
-
 People paying suppliers (Finance)
 
 To manage this, they use a big software called ERP (like SAP). ERP stores all actions in tables.
@@ -36,15 +32,10 @@ An object is a thing the business cares about and tracks.
 Think of objects like characters in a story:
 
 🧾 PO (Purchase Order)
-
 🧑 Vendor
-
 🧍 Customer
-
 💰 Invoice
-
 📦 Delivery
-
 📄 Sales Order
 
 You want to know what happened to these objects over time.
@@ -55,23 +46,15 @@ An event is something that happens to an object.
 Think of events like actions in the story:
 
 PO Created
-
 Goods Received
-
 Invoice Posted
-
 Payment Made
-
 Sales Order Created
-
 Delivery Done
 
 Each event has:
-
 What happened (Activity)
-
 When it happened (Timestamp)
-
 What it happened to (Object)
 
 🔁 5. Why Relationships Matter
@@ -80,11 +63,8 @@ Relationships tell us how objects are connected.
 Let’s say:
 
 One PO (Purchase Order) has many items. ✅ That’s 1 to many (1:M)
-
 One Vendor sends multiple invoices. ✅ That’s 1:M
-
 One Invoice could pay for many POs (rare). ❗ That’s many to many (M:N)
-
 Without relationships, we can’t know which invoice belongs to which PO or vendor.
 
 🛒 6. P2P Example (Procure to Pay)
@@ -93,18 +73,13 @@ Without relationships, we can’t know which invoice belongs to which PO or vend
 PO123 (Purchase Order)
 
 GR001 (Goods Receipt)
-
 INV001 (Invoice)
-
 VendorX
 
 🎥 Events:
 PO Created for laptop (PO123)
-
 Goods Received (GR001)
-
 Invoice Posted (INV001)
-
 Payment Made
 
 🧩 Tables & Relationships:
