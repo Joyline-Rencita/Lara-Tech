@@ -108,12 +108,12 @@ Invoice Posted (INV001)
 Payment Made
 
 🧩 Tables & Relationships:
-Table	Object	Event	Related To	Relationship
-EKKO	PO	PO Created	Vendor (LIFNR)	1:1
-EKPO	PO Item	-	PO (EKKO)	1:M
-MKPF	GR	Goods Received	PO (EBELN)	1:M
+Table	Object	  Event	Related To	            Relationship
+EKKO	PO	     PO Created	Vendor (LIFNR)	      1:1
+EKPO	PO       Item	-	PO (EKKO)	1:M
+MKPF	GR	     Goods Received	PO (EBELN)	      1:M
 RSEG	Invoice Item	Invoice Posted	PO (EBELN)	1:M
-BKPF	Invoice	Payment Made	Vendor (LIFNR)	1:1
+BKPF	Invoice	Payment Made	Vendor (LIFNR)	    1:1
 
 💰 7. O2C Example (Order to Cash)
 🎯 Goal: Customer orders a phone from your company
@@ -151,9 +151,7 @@ Type	When to use	Example
 1:M	One thing has many related things	One PO = many PO items
 M:N	Many things relate to many others	One invoice pays many POs (rare)
 
-In OCPM, all of them are allowed! That’s the beauty.
-
-You just link each event to all related objects.
+In OCPM, all of them are allowed! That’s the beauty. You just link each event to all related objects.
 
 🧾 9. What OCPM Event Log Looks Like
 OCPM doesn’t force you to pick just one object like CCPM.
