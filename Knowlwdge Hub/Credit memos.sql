@@ -1,6 +1,5 @@
-Pseudo-code
-Count of Distinct Vendor Account Debit Item IDs
-for Documents that are not Open and Cleared
+Pseudo-code :
+Count of Distinct Vendor Account Debit Item IDs for Documents that are not Open and Cleared
 
 COUNT(DISTINCT
   CASE
