@@ -1,4 +1,4 @@
-Pseudo-code
+Pseudo-code:
 Sum of Lost Cash Discount for valid documents
 
 SUM(
