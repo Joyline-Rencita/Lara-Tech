@@ -180,3 +180,105 @@
 - Main issues are **price mismatches (1,200 cases)** and **quantity mismatches (950 cases)**.  
 
 ---
+
+
+
+
+*******************************************************************************************************************
+
+
+
+⚙️ 15 Realistic Client Q&A from Dashboard Data
+1. Production Backlog
+
+Q: Do we have any open production orders pending completion this week?
+
+A: Yes, 35 production orders are pending, with a backlog of 1,200 units.
+
+2. On-Time Production
+
+Q: How many production orders were delayed last month?
+
+A: 18% of orders were completed past their due date, mostly due to material shortages.
+
+3. Material Availability
+
+Q: Is there enough raw material for the next production cycle in Plant 1100?
+
+A: No. Plant 1100 requires 500 units but only has 420 units available. Shortage = 80 units.
+
+4. Blocked Materials
+
+Q: How much stock is blocked under quality inspection?
+
+A: 65 units of critical materials are blocked across plants.
+
+5. Supplier Lead Times
+
+Q: What is the average supplier lead time for our top 5 raw materials?
+
+A: Average lead time is 42 days, with some critical suppliers taking up to 55 days.
+
+6. Consumption vs. Forecast
+
+Q: Are we consuming more raw materials than forecasted?
+
+A: Yes. Actual consumption is 15% higher than forecast for the last 2 weeks.
+
+7. Production Downtime
+
+Q: How much downtime did we have due to material shortages?
+
+A: 12 hours of downtime occurred in the last week due to missing materials.
+
+8. Alternative Sourcing
+
+Q: Can we source the missing raw material from another plant?
+
+A: Yes. Plant 1200 has 200 extra units of the same material that can be transferred.
+
+9. Stock Aging
+
+Q: Do we have slow-moving or aging stock that could expire soon?
+
+A: 240 units of material batch M-202 are aging over 90 days and need urgent usage.
+
+10. Capacity Utilization
+
+Q: What is the current production line utilization rate?
+
+A: Average utilization is 78%, but line 3 is at 95% load, which may risk delays.
+
+11. Work-in-Progress (WIP)
+
+Q: How much material is currently tied up in WIP?
+
+A: 320 units are in WIP across different production orders.
+
+12. Finished Goods Stock
+
+Q: Do we have enough finished goods to cover the next two weeks’ demand?
+
+A: Yes. Current FG stock is 3,500 units, while expected demand is 3,200 units.
+
+13. Urgent Orders
+
+Q: How many urgent production orders are pending?
+
+A: There are 7 urgent orders (red flagged), totaling 560 units.
+
+14. Scrap / Rework
+
+Q: How much material was scrapped or sent for rework last month?
+
+A: 3% of production resulted in scrap/rework, mostly due to quality issues in raw materials.
+
+15. Recommendation for Next Cycle
+
+Q: Based on current availability, can we meet next month’s production plan?
+
+A: Not fully. We have a shortfall of 180 units in raw materials. Recommendation:
+
+Transfer 80 units from Plant 1200.
+
+Expedite procurement of 100 units from Supplier A (lead time 25 days).
