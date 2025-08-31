@@ -1,0 +1,182 @@
+# 📊 E2E Management View – Dashboard Insights (Q&A)
+
+## 🔹 High-Level Business Questions
+
+**Q1. What is the total outstanding invoice value, and how much is already cleared?**  
+**A1.** Total invoice value is **$707M**. Out of this, **$190M has been cleared** and **$517M remains open**.
+
+---
+
+**Q2. What percentage of invoices are open vs cleared?**  
+**A2.** About **27.61% of invoice lines (5.05K out of 18.3K)** remain open, while **13.2K invoice lines are cleared**.
+
+---
+
+**Q3. What is the average aging of open invoices?**  
+**A3.** Open invoice lines have an **average aging of 252.23 days**, with posted-but-not-cleared invoices averaging **278.94 days**.
+
+---
+
+## 🔹 Operational Queries
+
+**Q4. Why do we still have invoices not posted, and what is their value?**  
+**A4.** There are **4.41K invoice lines (worth $76M)** not posted (parked/blocked), with an average aging of **248.38 days**.
+
+---
+
+**Q5. How many invoices are posted but not cleared?**  
+**A5.** There are **630 invoice lines (worth $441M)** posted but not cleared, with an average aging of **278.94 days**.
+
+---
+
+**Q6. Which group contributes more to open invoices: not posted vs. posted-but-not-cleared?**  
+**A6.** By value, **posted-but-not-cleared dominates ($441M, 72.39%)**, compared to **not posted ($76M, 27.61%)**.
+
+---
+
+## 🔹 Vendor & Payment Optimization
+
+**Q7. How many invoices are blocked on the due date, and what is their value?**  
+**A7.** There are **758 invoices** blocked on the due date, worth about **$60M**.
+
+---
+
+**Q8. How many invoices have short payment terms, and what is their value?**  
+**A8.** There are **1.1K invoices** with short payment terms, worth about **$80M**.
+
+---
+
+**Q9. How many strategic vendor invoices are paid late, and what is the impact?**  
+**A9.** **3.46K invoices** for strategic vendors are paid late (over 30 days), worth about **$120M**.
+
+---
+
+## 🔹 Aging & Risk Exposure
+
+**Q10. What is the longest aging bucket issue we see?**  
+**A10.** Posted-but-not-cleared invoices are aging the most at an **average of 278.94 days**, compared to unposted invoices at **248.38 days**.
+
+---
+
+**Q11. How much of our working capital is tied up in open invoices?**  
+**A11.** **$517M** is currently tied up in open invoices.
+
+---
+
+## 🔹 Cash Flow & Compliance
+
+**Q12. Based on open invoices, how does the next quarter look?**  
+**A12.** With **$517M open invoices averaging 252+ days in age**, the business faces significant cash flow delays unless clearing accelerates.
+
+---
+
+**Q13. How many total invoices are we dealing with, and how many lines?**  
+**A13.** There are **13.1K invoices** in total, consisting of **18.3K invoice lines**.
+
+---
+
+************************
+
+
+## 🔹 High-Level Business Questions
+
+**Q1. How many invoices are we currently managing, and what is their total value?**  
+**A1.** There are **5,048 invoices** with a total value of **$517M**.
+
+---
+
+**Q2. What is the average aging of invoices?**  
+**A2.** The average aging of invoices is **252.23 days**.
+
+---
+
+**Q3. How are invoices distributed across aging buckets (past due)?**  
+**A3.**
+- **0–15 days**: 8 invoices  
+- **15–30 days**: 28 invoices  
+- **30–100 days**: 82 invoices  
+- **>100 days**: 4,902 invoices  
+
+🔎 Majority of invoices are **over 100 days past due**.
+
+---
+
+**Q4. What do future due invoices look like?**  
+**A4.**
+- **Next 0–15 days**: 10 invoices  
+- **Next 15–30 days**: 9 invoices  
+- **Next 30–60 days**: 7 invoices  
+- **Next 60+ days**: 1 invoice  
+
+---
+
+## 🔹 Invoice Lifecycle Insights
+
+**Q5. How many invoices are in each lifecycle stage and their value?**  
+**A5.**
+- Approval Workflow: **718 invoices, $74M**  
+- Exception Handling: **1,400 invoices, $143M**  
+- Invoice Receipt: **1,500 invoices, $154M**  
+- Invoice Validation/3-Way Match: **800 invoices, $82M**  
+- Posted: **630 invoices, $65M**  
+- **Total: 5,048 invoices, $517M**
+
+---
+
+**Q6. What stage has the largest bottleneck?**  
+**A6.** The **Invoice Receipt stage** has the highest count (**1,500 invoices, $154M**), followed by **Exception Handling (1,400 invoices, $143M)**.
+
+---
+
+## 🔹 Exception Analysis
+
+**Q7. What are the main exception types and their volumes?**  
+**A7.**
+- Blocked PO: **250 invoices**  
+- Duplicate Invoice: **450 invoices**  
+- Incorrect Tax/VAT calculation: **350 invoices**  
+- Invoice-PO Price Mismatch: **1,200 invoices**  
+- Missing GR: **600 invoices**  
+- Quantity Mismatch: **950 invoices**  
+- UOM Mismatch: **200 invoices**
+
+---
+
+**Q8. Which exception type is most frequent?**  
+**A8.** The most common issue is **Invoice-PO Price Mismatch (1,200 invoices, 30% of exceptions)**, followed by **Quantity Mismatch (950 invoices, 24%)**.
+
+---
+
+## 🔹 Company Code / Business Unit Insights
+
+**Q9. Which company code has the highest open invoice value?**  
+**A9.**
+- **GB01 – Company 6**: **1,230 invoices, $353M** (avg aging: 225.34 days)  
+- **CH01 – Company 1**: **875 invoices, $134M** (avg aging: 165.63 days)  
+- **GB02 – Company 5**: **2,440 invoices, $19.6M** (avg aging: 190.12 days)  
+
+🔎 Company 6 alone contributes to **~68% of open invoice value ($353M out of $517M).**
+
+---
+
+**Q10. Which company code has the longest invoice aging?**  
+**A10.**  
+- **GB03 – Company 4**: Avg aging **218.12 days**  
+- **IE01 – Company 2**: Avg aging **229.61 days**  
+- Overall highest delays are seen in **Company 2 (229.61 days)**.
+
+---
+
+## 🔹 Risk & Compliance
+
+**Q11. How much of the invoice value is past due?**  
+**A11.** Out of **$517M**, about **$517M is past due** (majority >100 days overdue).  
+
+---
+
+**Q12. Where do we see the biggest risk for financial exposure?**  
+**A12.**  
+- **Company 6 (GB01)** with **$353M open past due invoices**.  
+- Main issues are **price mismatches (1,200 cases)** and **quantity mismatches (950 cases)**.  
+
+---
