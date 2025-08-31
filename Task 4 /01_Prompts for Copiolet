@@ -184,8 +184,3 @@ This document highlights key insights derived from the **E2E Management View das
 - Main issues are **price mismatches (1,200 cases)** and **quantity mismatches (950 cases)**.  
 
 ---
-
-✅ This dashboard highlights:  
-- Severe overdue problem (**97%+ invoices are past due >100 days**)  
-- Heavy dependency on **Company 6 ($353M exposure)**  
-- Exceptions in **Invoice-PO Price Mismatch and Quantity Mismatch*
