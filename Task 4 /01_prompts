@@ -79,9 +79,113 @@ This document highlights key insights derived from the **E2E Management View das
 
 ---
 
-✅ This Q&A highlights the **key financial and operational insights** that can drive discussions around:
-- **Working capital optimization**
-- **Process compliance & efficiency**
-- **Vendor relationship management**
-- **Cash flow forecasting**
-- **Root cause analysis of blocked/uncleared invoices**
+************************
+
+
+## 🔹 High-Level Business Questions
+
+**Q1. How many invoices are we currently managing, and what is their total value?**  
+**A1.** There are **5,048 invoices** with a total value of **$517M**.
+
+---
+
+**Q2. What is the average aging of invoices?**  
+**A2.** The average aging of invoices is **252.23 days**.
+
+---
+
+**Q3. How are invoices distributed across aging buckets (past due)?**  
+**A3.**
+- **0–15 days**: 8 invoices  
+- **15–30 days**: 28 invoices  
+- **30–100 days**: 82 invoices  
+- **>100 days**: 4,902 invoices  
+
+🔎 Majority of invoices are **over 100 days past due**.
+
+---
+
+**Q4. What do future due invoices look like?**  
+**A4.**
+- **Next 0–15 days**: 10 invoices  
+- **Next 15–30 days**: 9 invoices  
+- **Next 30–60 days**: 7 invoices  
+- **Next 60+ days**: 1 invoice  
+
+---
+
+## 🔹 Invoice Lifecycle Insights
+
+**Q5. How many invoices are in each lifecycle stage and their value?**  
+**A5.**
+- Approval Workflow: **718 invoices, $74M**  
+- Exception Handling: **1,400 invoices, $143M**  
+- Invoice Receipt: **1,500 invoices, $154M**  
+- Invoice Validation/3-Way Match: **800 invoices, $82M**  
+- Posted: **630 invoices, $65M**  
+- **Total: 5,048 invoices, $517M**
+
+---
+
+**Q6. What stage has the largest bottleneck?**  
+**A6.** The **Invoice Receipt stage** has the highest count (**1,500 invoices, $154M**), followed by **Exception Handling (1,400 invoices, $143M)**.
+
+---
+
+## 🔹 Exception Analysis
+
+**Q7. What are the main exception types and their volumes?**  
+**A7.**
+- Blocked PO: **250 invoices**  
+- Duplicate Invoice: **450 invoices**  
+- Incorrect Tax/VAT calculation: **350 invoices**  
+- Invoice-PO Price Mismatch: **1,200 invoices**  
+- Missing GR: **600 invoices**  
+- Quantity Mismatch: **950 invoices**  
+- UOM Mismatch: **200 invoices**
+
+---
+
+**Q8. Which exception type is most frequent?**  
+**A8.** The most common issue is **Invoice-PO Price Mismatch (1,200 invoices, 30% of exceptions)**, followed by **Quantity Mismatch (950 invoices, 24%)**.
+
+---
+
+## 🔹 Company Code / Business Unit Insights
+
+**Q9. Which company code has the highest open invoice value?**  
+**A9.**
+- **GB01 – Company 6**: **1,230 invoices, $353M** (avg aging: 225.34 days)  
+- **CH01 – Company 1**: **875 invoices, $134M** (avg aging: 165.63 days)  
+- **GB02 – Company 5**: **2,440 invoices, $19.6M** (avg aging: 190.12 days)  
+
+🔎 Company 6 alone contributes to **~68% of open invoice value ($353M out of $517M).**
+
+---
+
+**Q10. Which company code has the longest invoice aging?**  
+**A10.**  
+- **GB03 – Company 4**: Avg aging **218.12 days**  
+- **IE01 – Company 2**: Avg aging **229.61 days**  
+- Overall highest delays are seen in **Company 2 (229.61 days)**.
+
+---
+
+## 🔹 Risk & Compliance
+
+**Q11. How much of the invoice value is past due?**  
+**A11.** Out of **$517M**, about **$517M is past due** (majority >100 days overdue).  
+
+---
+
+**Q12. Where do we see the biggest risk for financial exposure?**  
+**A12.**  
+- **Company 6 (GB01)** with **$353M open past due invoices**.  
+- Main issues are **price mismatches (1,200 cases)** and **quantity mismatches (950 cases)**.  
+
+---
+
+✅ This dashboard highlights:  
+- Severe overdue problem (**97%+ invoices are past due >100 days**)  
+- Heavy dependency on **Company 6 ($353M exposure)**  
+- Exceptions in **Invoice-PO Price Mismatch and Quantity Mismatch*
