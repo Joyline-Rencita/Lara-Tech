@@ -1,0 +1,87 @@
+# 📊 E2E Management View – Dashboard Insights (Q&A)
+
+This document highlights key insights derived from the **E2E Management View dashboard**, structured in a **Question & Answer format** for quick business understanding.
+
+---
+
+## 🔹 High-Level Business Questions
+
+**Q1. What is the total outstanding invoice value, and how much is already cleared?**  
+**A1.** Total invoice value is **$707M**. Out of this, **$190M has been cleared** and **$517M remains open**.
+
+---
+
+**Q2. What percentage of invoices are open vs cleared?**  
+**A2.** About **27.61% of invoice lines (5.05K out of 18.3K)** remain open, while **13.2K invoice lines are cleared**.
+
+---
+
+**Q3. What is the average aging of open invoices?**  
+**A3.** Open invoice lines have an **average aging of 252.23 days**, with posted-but-not-cleared invoices averaging **278.94 days**.
+
+---
+
+## 🔹 Operational Queries
+
+**Q4. Why do we still have invoices not posted, and what is their value?**  
+**A4.** There are **4.41K invoice lines (worth $76M)** not posted (parked/blocked), with an average aging of **248.38 days**.
+
+---
+
+**Q5. How many invoices are posted but not cleared?**  
+**A5.** There are **630 invoice lines (worth $441M)** posted but not cleared, with an average aging of **278.94 days**.
+
+---
+
+**Q6. Which group contributes more to open invoices: not posted vs. posted-but-not-cleared?**  
+**A6.** By value, **posted-but-not-cleared dominates ($441M, 72.39%)**, compared to **not posted ($76M, 27.61%)**.
+
+---
+
+## 🔹 Vendor & Payment Optimization
+
+**Q7. How many invoices are blocked on the due date, and what is their value?**  
+**A7.** There are **758 invoices** blocked on the due date, worth about **$60M**.
+
+---
+
+**Q8. How many invoices have short payment terms, and what is their value?**  
+**A8.** There are **1.1K invoices** with short payment terms, worth about **$80M**.
+
+---
+
+**Q9. How many strategic vendor invoices are paid late, and what is the impact?**  
+**A9.** **3.46K invoices** for strategic vendors are paid late (over 30 days), worth about **$120M**.
+
+---
+
+## 🔹 Aging & Risk Exposure
+
+**Q10. What is the longest aging bucket issue we see?**  
+**A10.** Posted-but-not-cleared invoices are aging the most at an **average of 278.94 days**, compared to unposted invoices at **248.38 days**.
+
+---
+
+**Q11. How much of our working capital is tied up in open invoices?**  
+**A11.** **$517M** is currently tied up in open invoices.
+
+---
+
+## 🔹 Cash Flow & Compliance
+
+**Q12. Based on open invoices, how does the next quarter look?**  
+**A12.** With **$517M open invoices averaging 252+ days in age**, the business faces significant cash flow delays unless clearing accelerates.
+
+---
+
+**Q13. How many total invoices are we dealing with, and how many lines?**  
+**A13.** There are **13.1K invoices** in total, consisting of **18.3K invoice lines**.
+
+---
+
+✅ This Q&A highlights the **key financial and operational insights** that can drive discussions around:
+- **Working capital optimization**
+- **Process compliance & efficiency**
+- **Vendor relationship management**
+- **Cash flow forecasting**
+- **Root cause analysis of blocked/uncleared invoices**
