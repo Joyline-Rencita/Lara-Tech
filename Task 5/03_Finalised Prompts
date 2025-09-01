@@ -1,0 +1,80 @@
+⚙️ 15 Strategic Production & Material Management Q&A
+1. Production Backlog
+
+Q: What is the current volume of unfinished production orders awaiting completion within this week’s horizon?
+A: There are 35 pending production orders, representing a backlog of 1,200 units.
+
+2. On-Time Production
+
+Q: What proportion of production orders experienced schedule deviations in the previous month?
+A: Approximately 18% of production orders were delayed, primarily attributable to raw material shortages.
+
+3. Material Availability
+
+Q: Does Plant 1100 possess adequate raw material inventory to sustain the upcoming production cycle?
+A: No. Plant 1100 requires 500 units but has only 420 units available, resulting in a shortfall of 80 units.
+
+4. Blocked Materials
+
+Q: How much inventory remains under quality inspection or blocked status, restricting availability?
+A: A total of 65 units of critical material are currently blocked across plants.
+
+5. Supplier Lead Times
+
+Q: What is the average replenishment lead time among our top five strategic suppliers?
+A: The average lead time is 42 days, with certain suppliers extending up to 55 days.
+
+6. Consumption vs. Forecast
+
+Q: Are actual raw material consumption patterns deviating from the forecasted demand?
+A: Yes. Actual consumption is trending 15% above forecast for the past two weeks.
+
+7. Production Downtime
+
+Q: How much operational downtime has been incurred as a direct result of material unavailability?
+A: A total of 12 production hours were lost in the last week due to missing materials.
+
+8. Alternative Sourcing
+
+Q: Can material shortages at Plant 1100 be mitigated through intra-plant transfers or reallocation?
+A: Yes. Plant 1200 holds 200 surplus units of the same material that can be transferred.
+
+9. Stock Aging
+
+Q: Are there slow-moving or aging stock items approaching expiry thresholds?
+A: 240 units of batch M-202 have exceeded 90 days in storage and require expedited usage.
+
+10. Capacity Utilization
+
+Q: What is the current utilization rate across production lines, and where are bottlenecks emerging?
+A: Average utilization is 78%, with Line 3 running at 95%, posing a potential risk of schedule slippage.
+
+11. Work-in-Progress (WIP)
+
+Q: What volume of inventory is currently immobilized as Work-in-Progress across production orders?
+A: 320 units are presently tied up in WIP.
+
+12. Finished Goods Stock
+
+Q: Does the existing finished goods inventory sufficiently cover forecasted demand for the next fortnight?
+A: Yes. Current finished goods stock is 3,500 units, comfortably covering the expected demand of 3,200 units.
+
+13. Urgent Orders
+
+Q: How many urgent or red-flagged production orders are still outstanding?
+A: There are 7 urgent production orders, totaling 560 units.
+
+14. Scrap / Rework
+
+Q: What proportion of materials were scrapped or reworked in the last reporting period, and what were the primary drivers?
+A: 3% of production output required scrap or rework, primarily due to quality deficiencies in raw materials.
+
+15. Recommendation for Next Cycle
+
+Q: Considering current resource constraints, can the production plan for the next month be executed in full?
+A: Not entirely. A shortfall of 180 units is projected.
+Recommendation:
+
+Transfer 80 units from Plant 1200, and
+
+Expedite procurement of 100 units from Supplier A (lead time 25 days).
