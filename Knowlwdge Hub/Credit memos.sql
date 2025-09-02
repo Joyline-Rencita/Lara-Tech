@@ -7,3 +7,4 @@ COUNT(DISTINCT
       THEN NULL
     ELSE "o_celonis_VendorAccountDebitItem"."ID"
  END)
+
